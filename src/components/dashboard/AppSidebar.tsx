@@ -8,7 +8,9 @@ import {
   Sparkles, Plug, Settings, Users, Code2, CreditCard,
 } from "lucide-react";
 
-const groups = [
+type Item = { title: string; url: string; icon: typeof PlayCircle; accent?: boolean; exact?: boolean };
+type Group = { label: string; items: Item[] };
+const groups: Group[] = [
   {
     label: "Ação",
     items: [
@@ -72,7 +74,7 @@ export function AppSidebar() {
                     <SidebarMenuItem key={it.url}>
                       <SidebarMenuButton asChild isActive={active} tooltip={it.title}
                         className={it.accent ? "bg-sidebar-primary text-sidebar-primary-foreground hover:bg-sidebar-primary/90 data-[active=true]:bg-sidebar-primary" : ""}>
-                        <Link to={it.url}>
+                        <Link to={it.url as string}>
                           <it.icon className="h-4 w-4" />
                           <span>{it.title}</span>
                         </Link>
