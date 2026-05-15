@@ -1,0 +1,51 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { GitBranch } from "lucide-react";
+
+export const Route = createFileRoute("/dashboard/fluxogramas")({
+  component: Fluxogramas,
+});
+
+const flows = [
+  { t: "Onboarding cliente enterprise", type: "BPMN", date: "12 mai" },
+  { t: "Pipeline de vendas Q2", type: "Workflow", date: "10 mai" },
+  { t: "Resposta a incidente", type: "SOP", date: "08 mai" },
+  { t: "Integração com ERP", type: "Timeline", date: "05 mai" },
+  { t: "Lançamento de feature", type: "BPMN", date: "01 mai" },
+  { t: "Approval de orçamento", type: "Workflow", date: "28 abr" },
+];
+
+function Fluxogramas() {
+  return (
+    <div className="p-8 max-w-7xl mx-auto fade-up">
+      <p className="text-xs uppercase tracking-widest text-muted-foreground">Processos gerados</p>
+      <h1 className="mt-2 font-display text-4xl tracking-tight font-semibold">Fluxogramas</h1>
+      <p className="mt-2 text-sm text-muted-foreground max-w-xl">
+        Workflows, BPMNs e timelines extraídos automaticamente das suas reuniões.
+      </p>
+
+      <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-2xl border hairline overflow-hidden">
+        {flows.map((f) => (
+          <div key={f.t} className="bg-card p-6 hover-lift">
+            <div className="aspect-[4/3] border hairline rounded-lg bg-background grid place-items-center text-muted-foreground">
+              <svg viewBox="0 0 200 140" className="w-3/4 h-auto" fill="none" stroke="currentColor" strokeWidth="1">
+                <circle cx="20" cy="70" r="8" />
+                <rect x="50" y="55" width="50" height="30" rx="4" />
+                <path d="M125 40 l20 -20 l20 20 l-20 20 z" />
+                <path d="M28 70 H50" /><path d="M100 70 H125" />
+              </svg>
+            </div>
+            <div className="mt-5 flex items-start justify-between">
+              <div>
+                <div className="text-sm font-medium">{f.t}</div>
+                <div className="text-xs text-muted-foreground mt-1">{f.date}</div>
+              </div>
+              <span className="text-[10px] uppercase tracking-widest text-muted-foreground inline-flex items-center gap-1">
+                <GitBranch className="h-3 w-3" /> {f.type}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
