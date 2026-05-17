@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/marketing/SiteHeader";
 import { SiteFooter } from "@/components/marketing/SiteFooter";
+import { AnimatedGrid } from "@/components/marketing/AnimatedGrid";
 import { ArrowUpRight } from "lucide-react";
 
 export const Route = createFileRoute("/blog")({
@@ -42,10 +43,12 @@ const posts = [
 
 function Blog() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <SiteHeader />
-      <section className="mx-auto max-w-7xl px-6 pt-20 pb-16">
-        <p className="text-xs uppercase tracking-widest text-muted-foreground">Diary</p>
+    <div className="min-h-screen flex flex-col relative">
+      <AnimatedGrid />
+      <div className="z-10 flex flex-col">
+        <SiteHeader />
+        <section className="mx-auto max-w-7xl px-6 pt-20 pb-16">
+          <p className="text-xs uppercase tracking-widest text-muted-foreground">Diary</p>
         <h1 className="mt-3 font-display text-5xl md:text-6xl tracking-tight font-semibold">
           Blog.
         </h1>
@@ -79,6 +82,7 @@ function Blog() {
         </div>
       </section>
       <SiteFooter />
+      </div>
     </div>
   );
 }

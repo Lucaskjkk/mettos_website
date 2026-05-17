@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/marketing/SiteHeader";
 import { SiteFooter } from "@/components/marketing/SiteFooter";
+import { AnimatedGrid } from "@/components/marketing/AnimatedGrid";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 
@@ -79,10 +80,12 @@ const plans = [
 
 function Precos() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <SiteHeader />
-      <section className="mx-auto max-w-7xl px-6 pt-20 pb-12">
-        <div className="max-w-2xl">
+    <div className="min-h-screen flex flex-col relative">
+      <AnimatedGrid />
+      <div className="z-10 flex flex-col">
+        <SiteHeader />
+        <section className="mx-auto max-w-7xl px-6 pt-20 pb-12">
+          <div className="max-w-2xl">
           <p className="text-xs uppercase tracking-widest text-muted-foreground">Pricing</p>
           <h1 className="mt-3 font-display text-5xl md:text-6xl tracking-tight font-semibold text-balance">
             Simple. Per user. Cancel anytime.
@@ -166,6 +169,7 @@ function Precos() {
         </div>
       </section>
       <SiteFooter />
+      </div>
     </div>
   );
 }

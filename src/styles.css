@@ -215,4 +215,19 @@
       pointer-events: none;
     }
   }
+
+  @keyframes scan-x {
+    0% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+  @keyframes scan-y {
+    0% { transform: translateY(-100%); }
+    50% { transform: translateY(100%); }
+    100% { transform: translateY(-100%); }
+  }
+  .animate-scan-x { animation: scan-x 15s ease-in-out infinite; }
+  .animate-scan-x-reverse { animation: scan-x 20s ease-in-out infinite reverse; }
+  .animate-scan-y { animation: scan-y 18s ease-in-out infinite; }
+  .animate-scan-y-reverse { animation: scan-y 24s ease-in-out infinite reverse; }
 }

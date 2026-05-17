@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/marketing/SiteHeader";
 import { SiteFooter } from "@/components/marketing/SiteFooter";
+import { AnimatedGrid } from "@/components/marketing/AnimatedGrid";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -39,19 +40,22 @@ export const Route = createFileRoute("/")({
 
 function Landing() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <SiteHeader />
-      <Hero />
-      <LogosStrip />
-      <FeaturesGrid />
-      <ProductDemo />
-      <SemanticSearch />
-      <Workflow />
-      <Metrics />
-      <Integrations />
-      <Testimonials />
-      <CTA />
-      <SiteFooter />
+    <div className="min-h-screen flex flex-col relative">
+      <AnimatedGrid />
+      <div className="z-10 flex flex-col">
+        <SiteHeader />
+        <Hero />
+        <LogosStrip />
+        <FeaturesGrid />
+        <ProductDemo />
+        <SemanticSearch />
+        <Workflow />
+        <Metrics />
+        <Integrations />
+        <Testimonials />
+        <CTA />
+        <SiteFooter />
+      </div>
     </div>
   );
 }
@@ -104,53 +108,61 @@ function Hero() {
 
 function HeroCard() {
   return (
-    <div className="relative rounded-2xl border hairline bg-card overflow-hidden hover-lift shadow-[0_30px_80px_-30px_rgba(0,0,0,0.18)]">
-      <div className="flex items-center justify-between px-5 py-3 border-b hairline">
-        <div className="flex items-center gap-2 text-xs text-muted-foreground">
-          <span className="h-2 w-2 rounded-full bg-destructive" />
+    <div className="relative rounded-2xl border hairline bg-secondary/50 backdrop-blur-md overflow-hidden hover-lift shadow-[0_30px_80px_-30px_rgba(0,0,0,0.18)]">
+      <div className="flex items-center justify-between px-5 py-3 border-b hairline bg-background/50">
+        <div className="flex items-center gap-3 text-xs text-muted-foreground font-medium">
+          <span className="flex h-2 w-2 relative">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-destructive opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-destructive"></span>
+          </span>
           <span>Recording · 00:24:18</span>
-          <span className="ml-3 font-mono">Room C — Q2 Planning</span>
+          <span className="ml-3 font-mono opacity-60 hidden sm:inline">Room C — Q2 Planning</span>
         </div>
         <div className="text-xs text-muted-foreground font-mono">5 participants</div>
       </div>
       <div className="grid md:grid-cols-[1.2fr_1fr]">
         <div className="p-6 space-y-4 border-r hairline min-h-[320px]">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground">
+          <p className="text-xs uppercase tracking-widest text-muted-foreground opacity-80">
             Live transcription
           </p>
-          <div className="space-y-3 text-sm">
-            <Line
-              who="Lucas"
-              text="The ERP integration needs to be ready before the June go-live."
-            />
-            <Line who="Marina" text="Agreed. I'll map out the endpoints and send by Friday." />
-            <Line who="Pedro" text="Risk: we depend on the partner API. Plan B?" />
-            <Line who="Lucas" text="Good point. Marina, add a fallback to the scope." />
-            <div className="flex items-center gap-2 text-muted-foreground italic">
-              <span className="h-1.5 w-1.5 rounded-full bg-foreground blink" />
-              Marina is speaking…
+          <div className="space-y-4 text-sm mt-4">
+            <div className="fade-up" style={{ animationDelay: "0.4s" }}>
+              <Line who="Lucas" text="The ERP integration needs to be ready before the June go-live." />
+            </div>
+            <div className="fade-up" style={{ animationDelay: "1.2s" }}>
+              <Line who="Marina" text="Agreed. I'll map out the endpoints and send by Friday." />
+            </div>
+            <div className="fade-up" style={{ animationDelay: "2.0s" }}>
+              <Line who="Pedro" text="Risk: we depend on the partner API. Plan B?" />
+            </div>
+            <div className="fade-up" style={{ animationDelay: "2.8s" }}>
+              <Line who="Lucas" text="Good point. Marina, add a fallback to the scope." />
+            </div>
+            <div className="flex items-center gap-2 text-muted-foreground italic fade-up mt-2" style={{ animationDelay: "3.6s" }}>
+              <span className="h-1.5 w-1.5 rounded-full bg-foreground flex-shrink-0 animate-ping" />
+              <span className="opacity-80">Marina is speaking…</span>
             </div>
           </div>
         </div>
-        <div className="p-6 space-y-5">
-          <div>
-            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-2 flex items-center gap-2">
-              <Sparkles className="h-3 w-3" /> Detected insights
+        <div className="p-6 space-y-6">
+          <div className="fade-up" style={{ animationDelay: "1.6s" }}>
+            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3 flex items-center gap-2 opacity-80">
+              <Sparkles className="h-3.5 w-3.5 text-primary" /> Detected insights
             </p>
-            <ul className="space-y-2 text-sm">
-              <li className="flex gap-2">
-                <span className="text-muted-foreground">·</span> Decision: ERP integration by June
+            <ul className="space-y-3 text-sm">
+              <li className="flex gap-2 items-start">
+                <span className="text-primary mt-0.5">•</span> <span>Decision: ERP integration by June</span>
               </li>
-              <li className="flex gap-2">
-                <span className="text-muted-foreground">·</span> Risk: dependency on partner API
+              <li className="flex gap-2 items-start">
+                <span className="text-primary mt-0.5">•</span> <span>Risk: dependency on partner API</span>
               </li>
-              <li className="flex gap-2">
-                <span className="text-muted-foreground">·</span> Recurring topic: <em>go-live</em>
+              <li className="flex gap-2 items-start">
+                <span className="text-primary mt-0.5">•</span> <span>Recurring topic: <em className="text-foreground">go-live</em></span>
               </li>
             </ul>
           </div>
-          <div>
-            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-2">
+          <div className="fade-up pt-2" style={{ animationDelay: "3.2s" }}>
+            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3 opacity-80">
               Generated tasks
             </p>
             <div className="space-y-2">
@@ -166,22 +178,22 @@ function HeroCard() {
 
 function Line({ who, text }: { who: string; text: string }) {
   return (
-    <div className="flex gap-3">
-      <span className="font-mono text-xs text-muted-foreground w-16 shrink-0 mt-0.5">{who}</span>
-      <span>{text}</span>
+    <div className="flex gap-4 items-start">
+      <span className="font-mono text-[11px] text-muted-foreground w-12 shrink-0 mt-0.5 opacity-70 uppercase tracking-wider">{who}</span>
+      <span className="leading-relaxed">{text}</span>
     </div>
   );
 }
 function Task({ to, what, when }: { to: string; what: string; when: string }) {
   return (
-    <div className="flex items-center justify-between border hairline rounded-md px-3 py-2 text-xs">
-      <div className="flex items-center gap-2">
-        <div className="h-5 w-5 rounded-full bg-foreground text-background grid place-items-center text-[9px]">
+    <div className="flex items-center justify-between border hairline bg-background/50 rounded-lg px-4 py-2.5 text-xs hover-lift cursor-default transition-colors hover:bg-background/80">
+      <div className="flex items-center gap-3">
+        <div className="h-6 w-6 rounded-full bg-foreground text-background grid place-items-center text-[10px] font-medium shadow-sm">
           {to[0]}
         </div>
-        <span>{what}</span>
+        <span className="font-medium">{what}</span>
       </div>
-      <span className="text-muted-foreground font-mono">{when}</span>
+      <span className="text-muted-foreground font-mono text-[10px] opacity-70 bg-muted/50 px-2 py-1 rounded-md">{when}</span>
     </div>
   );
 }
@@ -198,19 +210,21 @@ function LogosStrip() {
     "Verbo",
   ];
   return (
-    <section className="border-y hairline py-8 overflow-hidden">
-      <p className="text-center text-xs uppercase tracking-widest text-muted-foreground mb-6">
+    <section className="mx-auto max-w-7xl border-y hairline py-10 overflow-hidden relative bg-transparent">
+      <p className="text-center text-xs uppercase tracking-widest text-muted-foreground mb-8 px-6">
         Teams that replaced manual meeting notes with Minuta
       </p>
-      <div className="marquee">
-        {[...logos, ...logos].map((l, i) => (
-          <span
-            key={i}
-            className="text-2xl font-display tracking-tight text-muted-foreground/80 whitespace-nowrap"
-          >
-            {l}
-          </span>
-        ))}
+      <div className="flex overflow-hidden relative [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+        <div className="marquee w-max select-none">
+          {[...logos, ...logos, ...logos, ...logos].map((l, i) => (
+            <span
+              key={i}
+              className="text-2xl font-display tracking-tight text-muted-foreground/80 whitespace-nowrap px-4"
+            >
+              {l}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );
