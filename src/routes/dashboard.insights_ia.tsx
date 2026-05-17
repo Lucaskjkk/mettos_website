@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { Sparkles, AlertTriangle, Repeat, TrendingDown, Lightbulb, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 
@@ -7,28 +7,49 @@ export const Route = createFileRoute("/dashboard/insights_ia")({
 });
 
 const cards = [
-  { i: Repeat, t: "Tópico recorrente", d: "“Integração com ERP” apareceu em 7 reuniões. Considere um workstream dedicado." },
-  { i: AlertTriangle, t: "Risco detectado", d: "Dependência da API do parceiro foi mencionada como bloqueio em 3 reuniões." },
-  { i: TrendingDown, t: "Reuniões improdutivas", d: "9% das reuniões terminaram sem decisão. Sugestão: aplicar template de pauta." },
-  { i: Lightbulb, t: "Sugestão", d: "Marina e Bruno discutem temas similares isoladamente — proponha um sync semanal." },
+  {
+    i: Repeat,
+    t: "Recurring topic",
+    d: '"ERP Integration" appeared in 7 meetings. Consider a dedicated workstream.',
+  },
+  {
+    i: AlertTriangle,
+    t: "Detected risk",
+    d: "Partner API dependency was mentioned as a blocker in 3 meetings.",
+  },
+  {
+    i: TrendingDown,
+    t: "Unproductive meetings",
+    d: "9% of meetings ended without a decision. Suggestion: apply an agenda template.",
+  },
+  {
+    i: Lightbulb,
+    t: "Suggestion",
+    d: "Marina and Bruno discuss similar topics separately — propose a weekly sync.",
+  },
 ];
 
 function InsightsIA() {
   return (
     <div className="p-8 max-w-7xl mx-auto fade-up">
       <p className="text-xs uppercase tracking-widest text-muted-foreground inline-flex items-center gap-2">
-        <Sparkles className="h-3 w-3" /> Inteligência
+        <Sparkles className="h-3 w-3" /> Intelligence
       </p>
-      <h1 className="mt-2 font-display text-4xl tracking-tight font-semibold">Insights IA</h1>
+      <h1 className="mt-2 font-display text-4xl tracking-tight font-semibold">AI Insights</h1>
       <p className="mt-2 text-sm text-muted-foreground max-w-xl">
-        Padrões, gargalos e recomendações detectadas em todas as suas reuniões.
+        Patterns, bottlenecks and recommendations detected across all your meetings.
       </p>
 
       <div className="mt-10 border hairline rounded-2xl bg-card p-6">
-        <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">Busca semântica</p>
+        <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">
+          Semantic search
+        </p>
         <div className="relative">
           <Search className="h-4 w-4 absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
-          <Input placeholder='Ex.: "Mostre reuniões que falaram sobre integração com ERP"' className="pl-11 h-12 text-base" />
+          <Input
+            placeholder='E.g.: "Show meetings that discussed ERP integration"'
+            className="pl-11 h-12 text-base"
+          />
         </div>
       </div>
 

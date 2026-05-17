@@ -12,37 +12,37 @@ type Item = { title: string; url: string; icon: typeof PlayCircle; accent?: bool
 type Group = { label: string; items: Item[] };
 const groups: Group[] = [
   {
-    label: "Ação",
+    label: "Action",
     items: [
-      { title: "Iniciar reunião", url: "/dashboard/inicio_reuniao", icon: PlayCircle, accent: true },
+      { title: "Start meeting", url: "/dashboard/inicio_reuniao", icon: PlayCircle, accent: true },
     ],
   },
   {
-    label: "Visão geral",
+    label: "Overview",
     items: [
       { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard, exact: true },
     ],
   },
   {
-    label: "Reuniões",
+    label: "Meetings",
     items: [
-      { title: "Lista de reuniões", url: "/dashboard/lista_reunioes", icon: Mic },
-      { title: "Fluxogramas", url: "/dashboard/fluxogramas", icon: GitBranch },
-      { title: "Tarefas & Ações", url: "/dashboard/tarefas", icon: ListChecks },
+      { title: "Meeting list", url: "/dashboard/lista_reunioes", icon: Mic },
+      { title: "Flowcharts", url: "/dashboard/fluxogramas", icon: GitBranch },
+      { title: "Tasks & Actions", url: "/dashboard/tarefas", icon: ListChecks },
     ],
   },
   {
-    label: "Inteligência",
+    label: "Intelligence",
     items: [
-      { title: "Insights IA", url: "/dashboard/insights_ia", icon: Sparkles },
-      { title: "Integrações", url: "/dashboard/integracoes", icon: Plug },
+      { title: "AI Insights", url: "/dashboard/insights_ia", icon: Sparkles },
+      { title: "Integrations", url: "/dashboard/integracoes", icon: Plug },
     ],
   },
   {
     label: "Workspace",
     items: [
-      { title: "Configurações", url: "/dashboard/configuracoes", icon: Settings },
-      { title: "Equipe", url: "/dashboard/equipe", icon: Users },
+      { title: "Settings", url: "/dashboard/configuracoes", icon: Settings },
+      { title: "Team", url: "/dashboard/equipe", icon: Users },
       { title: "Billing", url: "/dashboard/billing", icon: CreditCard },
       { title: "API / Developers", url: "/dashboard/api", icon: Code2 },
     ],

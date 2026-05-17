@@ -8,11 +8,11 @@ export const Route = createFileRoute("/dashboard/equipe")({
 
 const members = [
   { n: "Ana Ribeiro", e: "ana@empresa.com", r: "Owner", l: "Online" },
-  { n: "Bruno Tavares", e: "bruno@empresa.com", r: "Admin", l: "Há 2h" },
+  { n: "Bruno Tavares", e: "bruno@empresa.com", r: "Admin", l: "2 hours ago" },
   { n: "Camila Souza", e: "camila@empresa.com", r: "Member", l: "Online" },
-  { n: "Lucas Mendes", e: "lucas@empresa.com", r: "Member", l: "Ontem" },
+  { n: "Lucas Mendes", e: "lucas@empresa.com", r: "Member", l: "Yesterday" },
   { n: "Marina Rocha", e: "marina@empresa.com", r: "Member", l: "Online" },
-  { n: "Pedro Dias", e: "pedro@empresa.com", r: "Guest", l: "Há 3 dias" },
+  { n: "Pedro Dias", e: "pedro@empresa.com", r: "Guest", l: "3 days ago" },
 ];
 
 function Equipe() {
@@ -20,21 +20,33 @@ function Equipe() {
     <div className="p-8 max-w-5xl mx-auto fade-up">
       <div className="flex items-end justify-between flex-wrap gap-4">
         <div>
-          <p className="text-xs uppercase tracking-widest text-muted-foreground">Pessoas</p>
-          <h1 className="mt-2 font-display text-4xl tracking-tight font-semibold">Equipe</h1>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground">People</p>
+          <h1 className="mt-2 font-display text-4xl tracking-tight font-semibold">Team</h1>
         </div>
-        <Button><Plus className="h-4 w-4" />Convidar</Button>
+        <Button>
+          <Plus className="h-4 w-4" />
+          Invite
+        </Button>
       </div>
 
       <div className="mt-10 border hairline rounded-2xl bg-card overflow-hidden">
         <div className="grid grid-cols-[1.5fr_1.5fr_0.6fr_0.6fr] px-6 py-3 text-[10px] uppercase tracking-widest text-muted-foreground border-b hairline">
-          <span>Nome</span><span>Email</span><span>Função</span><span>Atividade</span>
+          <span>Nome</span>
+          <span>Email</span>
+          <span>Função</span>
+          <span>Atividade</span>
         </div>
         {members.map((m) => (
-          <div key={m.e} className="grid grid-cols-[1.5fr_1.5fr_0.6fr_0.6fr] px-6 py-4 items-center border-b hairline last:border-b-0 hover:bg-muted/40 transition-colors">
+          <div
+            key={m.e}
+            className="grid grid-cols-[1.5fr_1.5fr_0.6fr_0.6fr] px-6 py-4 items-center border-b hairline last:border-b-0 hover:bg-muted/40 transition-colors"
+          >
             <div className="flex items-center gap-3">
               <div className="h-8 w-8 rounded-full bg-foreground text-background grid place-items-center text-xs font-medium">
-                {m.n.split(" ").map(s => s[0]).join("")}
+                {m.n
+                  .split(" ")
+                  .map((s) => s[0])
+                  .join("")}
               </div>
               <span className="text-sm font-medium">{m.n}</span>
             </div>

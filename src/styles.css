@@ -169,4 +169,50 @@
   }
   .blink { animation: blink 1.4s steps(2) infinite; }
   @keyframes blink { 50% { opacity: .2; } }
+
+  .animate-swap-1 {
+    animation: swap1 8s infinite;
+  }
+  .animate-swap-2 {
+    animation: swap2 8s infinite;
+  }
+
+  @keyframes swap1 {
+    0%, 45% {
+      opacity: 1;
+      filter: blur(0px);
+      transform: scale(1);
+    }
+    50%, 95% {
+      opacity: 0;
+      filter: blur(8px);
+      transform: scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      filter: blur(0px);
+      transform: scale(1);
+    }
+  }
+
+  @keyframes swap2 {
+    0%, 45% {
+      opacity: 0;
+      filter: blur(8px);
+      transform: scale(0.95);
+      pointer-events: none;
+    }
+    50%, 95% {
+      opacity: 1;
+      filter: blur(0px);
+      transform: scale(1);
+      pointer-events: auto;
+    }
+    100% {
+      opacity: 0;
+      filter: blur(8px);
+      transform: scale(0.95);
+      pointer-events: none;
+    }
+  }
 }

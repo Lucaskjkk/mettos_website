@@ -7,27 +7,56 @@ export const Route = createFileRoute("/dashboard/tarefas")({
 });
 
 const cols = [
-  { name: "A fazer", items: [
-    { t: "Levantar endpoints do ERP", who: "Marina", due: "Sex", from: "Planejamento Q2", prio: "Alta" },
-    { t: "Plano de contingência API parceiro", who: "Pedro", due: "Próx. semana", from: "Planejamento Q2", prio: "Média" },
-    { t: "Atualizar deck de vendas", who: "Lucas", due: "23 mai", from: "Sync de produto", prio: "Baixa" },
-  ]},
-  { name: "Em andamento", items: [
-    { t: "Mockups do dashboard v2", who: "Bruno", due: "20 mai", from: "Roadmap produto", prio: "Alta" },
-    { t: "Documentar SOP de incidente", who: "Camila", due: "18 mai", from: "Pós-mortem", prio: "Média" },
-  ]},
-  { name: "Concluído", items: [
-    { t: "Aprovar orçamento Q2", who: "Ana", due: "10 mai", from: "Review trimestral", prio: "Alta" },
-    { t: "Contratar dev sênior", who: "Camila", due: "08 mai", from: "Hiring panel", prio: "Média" },
-  ]},
+  {
+    name: "To do",
+    items: [
+      { t: "Map ERP endpoints", who: "Marina", due: "Fri", from: "Q2 Planning", prio: "High" },
+      {
+        t: "Partner API contingency plan",
+        who: "Pedro",
+        due: "Next week",
+        from: "Q2 Planning",
+        prio: "Medium",
+      },
+      { t: "Update sales deck", who: "Lucas", due: "May 23", from: "Product sync", prio: "Low" },
+    ],
+  },
+  {
+    name: "In progress",
+    items: [
+      {
+        t: "Dashboard v2 mockups",
+        who: "Bruno",
+        due: "May 20",
+        from: "Product roadmap",
+        prio: "High",
+      },
+      {
+        t: "Document incident SOP",
+        who: "Camila",
+        due: "May 18",
+        from: "Post-mortem",
+        prio: "Medium",
+      },
+    ],
+  },
+  {
+    name: "Done",
+    items: [
+      { t: "Approve Q2 budget", who: "Ana", due: "May 10", from: "Quarterly review", prio: "High" },
+      { t: "Hire senior dev", who: "Camila", due: "May 8", from: "Hiring panel", prio: "Medium" },
+    ],
+  },
 ];
 
 function Tarefas() {
   return (
     <div className="p-8 max-w-7xl mx-auto fade-up">
-      <p className="text-xs uppercase tracking-widest text-muted-foreground">Ação</p>
-      <h1 className="mt-2 font-display text-4xl tracking-tight font-semibold">Tarefas & Ações</h1>
-      <p className="mt-2 text-sm text-muted-foreground">Tudo que foi decidido em reuniões — com responsável e prazo.</p>
+      <p className="text-xs uppercase tracking-widest text-muted-foreground">Action</p>
+      <h1 className="mt-2 font-display text-4xl tracking-tight font-semibold">Tasks & Actions</h1>
+      <p className="mt-2 text-sm text-muted-foreground">
+        Everything decided in meetings — with owner and deadline.
+      </p>
 
       <div className="mt-10 grid md:grid-cols-3 gap-6">
         {cols.map((c) => (
@@ -40,18 +69,26 @@ function Tarefas() {
               {c.items.map((it) => (
                 <div key={it.t} className="border hairline rounded-lg p-3 bg-background hover-lift">
                   <div className="flex items-start gap-2">
-                    <Checkbox className="mt-0.5" defaultChecked={c.name === "Concluído"} />
+                    <Checkbox className="mt-0.5" defaultChecked={c.name === "Done"} />
                     <div className="flex-1">
                       <div className="text-sm">{it.t}</div>
-                      <div className="text-[10px] uppercase tracking-widest text-muted-foreground mt-2">de · {it.from}</div>
+                      <div className="text-[10px] uppercase tracking-widest text-muted-foreground mt-2">
+                        from · {it.from}
+                      </div>
                       <div className="mt-3 flex items-center justify-between">
                         <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                          <div className="h-5 w-5 rounded-full bg-foreground text-background grid place-items-center text-[9px]">{it.who[0]}</div>
+                          <div className="h-5 w-5 rounded-full bg-foreground text-background grid place-items-center text-[9px]">
+                            {it.who[0]}
+                          </div>
                           {it.who}
                         </div>
                         <div className="flex items-center gap-1.5">
-                          <Badge variant="outline" className="text-[10px] font-normal">{it.prio}</Badge>
-                          <span className="text-[10px] text-muted-foreground font-mono">{it.due}</span>
+                          <Badge variant="outline" className="text-[10px] font-normal">
+                            {it.prio}
+                          </Badge>
+                          <span className="text-[10px] text-muted-foreground font-mono">
+                            {it.due}
+                          </span>
                         </div>
                       </div>
                     </div>

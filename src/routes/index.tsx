@@ -4,17 +4,34 @@ import { SiteFooter } from "@/components/marketing/SiteFooter";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
-  ArrowUpRight, Mic, FileText, GitBranch, ListChecks, BarChart3,
-  Search, ShieldCheck, Sparkles, Plug, Quote, ArrowRight,
+  ArrowUpRight,
+  Mic,
+  FileText,
+  GitBranch,
+  ListChecks,
+  BarChart3,
+  Search,
+  ShieldCheck,
+  Sparkles,
+  Plug,
+  Quote,
+  ArrowRight,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Minuta — Reuniões presenciais que viram decisões" },
-      { name: "description", content: "Grave, transcreva e transforme reuniões presenciais em atas, fluxogramas e planos de ação com IA." },
-      { property: "og:title", content: "Minuta — Reuniões que viram decisões" },
-      { property: "og:description", content: "IA que transforma reuniões em ata, fluxograma e roadmap automaticamente." },
+      { title: "Minuta — In-person meetings that become decisions" },
+      {
+        name: "description",
+        content:
+          "Record, transcribe and transform in-person meetings into minutes, flowcharts and action plans with AI.",
+      },
+      { property: "og:title", content: "Minuta — Meetings that become decisions" },
+      {
+        property: "og:description",
+        content: "AI that automatically transforms meetings into minutes, flowcharts and roadmaps.",
+      },
     ],
   }),
   component: Landing,
@@ -46,29 +63,34 @@ function Hero() {
         <div className="fade-up max-w-3xl">
           <Badge variant="outline" className="rounded-full px-3 py-1 font-normal text-xs">
             <span className="h-1.5 w-1.5 rounded-full bg-foreground mr-2 blink" />
-            Novo · Gravação presencial com diarização
+            New · In-person recording with diarization
           </Badge>
           <h1 className="font-display text-5xl md:text-7xl font-semibold tracking-tight mt-6 text-balance">
-            Reuniões presenciais que viram <em className="italic font-light">decisões</em>.
+            In-person meetings that become <em className="italic font-light">decisions</em>.
           </h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-xl text-balance">
-            Coloque o celular na mesa. A Minuta grava, transcreve e entrega ata, fluxograma e plano de ação enquanto você ainda está saindo da sala.
+            Place your phone on the table. Minuta records, transcribes, and delivers minutes,
+            flowcharts, and action plans while you're still leaving the room.
           </p>
           <div className="mt-10 flex items-center gap-3">
             <Button asChild size="lg" className="h-12 px-6 text-base group">
               <Link to="/dashboard">
-                Começar grátis
+                Get started free
                 <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </Link>
             </Button>
             <Button asChild variant="ghost" size="lg" className="h-12 px-4 text-base">
-              <Link to="/precos">Ver preços <ArrowRight className="h-4 w-4" /></Link>
+              <Link to="/precos">
+                See pricing <ArrowRight className="h-4 w-4" />
+              </Link>
             </Button>
           </div>
           <div className="mt-8 text-xs text-muted-foreground flex flex-wrap items-center gap-x-6 gap-y-2">
-            <span className="flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5" /> LGPD compliant</span>
-            <span>· 10 reuniões grátis / mês</span>
-            <span>· Sem cartão de crédito</span>
+            <span className="flex items-center gap-1.5">
+              <ShieldCheck className="h-3.5 w-3.5" /> Privacy compliant
+            </span>
+            <span>· 10 free meetings / month</span>
+            <span>· No credit card required</span>
           </div>
         </div>
 
@@ -86,39 +108,54 @@ function HeroCard() {
       <div className="flex items-center justify-between px-5 py-3 border-b hairline">
         <div className="flex items-center gap-2 text-xs text-muted-foreground">
           <span className="h-2 w-2 rounded-full bg-destructive" />
-          <span>Gravando · 00:24:18</span>
-          <span className="ml-3 font-mono">Sala C — Planejamento Q2</span>
+          <span>Recording · 00:24:18</span>
+          <span className="ml-3 font-mono">Room C — Q2 Planning</span>
         </div>
-        <div className="text-xs text-muted-foreground font-mono">5 participantes</div>
+        <div className="text-xs text-muted-foreground font-mono">5 participants</div>
       </div>
       <div className="grid md:grid-cols-[1.2fr_1fr]">
         <div className="p-6 space-y-4 border-r hairline min-h-[320px]">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground">Transcrição ao vivo</p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground">
+            Live transcription
+          </p>
           <div className="space-y-3 text-sm">
-            <Line who="Lucas" text="A integração com o ERP precisa estar pronta antes do go-live de junho." />
-            <Line who="Marina" text="Concordo. Vou levantar os endpoints e mando até sexta." />
-            <Line who="Pedro" text="Risco: dependemos da API do parceiro. Plano B?" />
-            <Line who="Lucas" text="Boa. Marina, inclui um fallback no escopo." />
+            <Line
+              who="Lucas"
+              text="The ERP integration needs to be ready before the June go-live."
+            />
+            <Line who="Marina" text="Agreed. I'll map out the endpoints and send by Friday." />
+            <Line who="Pedro" text="Risk: we depend on the partner API. Plan B?" />
+            <Line who="Lucas" text="Good point. Marina, add a fallback to the scope." />
             <div className="flex items-center gap-2 text-muted-foreground italic">
               <span className="h-1.5 w-1.5 rounded-full bg-foreground blink" />
-              Marina está falando…
+              Marina is speaking…
             </div>
           </div>
         </div>
         <div className="p-6 space-y-5">
           <div>
-            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-2 flex items-center gap-2"><Sparkles className="h-3 w-3" /> Insights detectados</p>
+            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-2 flex items-center gap-2">
+              <Sparkles className="h-3 w-3" /> Detected insights
+            </p>
             <ul className="space-y-2 text-sm">
-              <li className="flex gap-2"><span className="text-muted-foreground">·</span> Decisão: integração com ERP até junho</li>
-              <li className="flex gap-2"><span className="text-muted-foreground">·</span> Risco: dependência da API do parceiro</li>
-              <li className="flex gap-2"><span className="text-muted-foreground">·</span> Tópico recorrente: <em>go-live</em></li>
+              <li className="flex gap-2">
+                <span className="text-muted-foreground">·</span> Decision: ERP integration by June
+              </li>
+              <li className="flex gap-2">
+                <span className="text-muted-foreground">·</span> Risk: dependency on partner API
+              </li>
+              <li className="flex gap-2">
+                <span className="text-muted-foreground">·</span> Recurring topic: <em>go-live</em>
+              </li>
             </ul>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Tarefas geradas</p>
+            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-2">
+              Generated tasks
+            </p>
             <div className="space-y-2">
-              <Task to="Marina" what="Levantar endpoints do ERP" when="Sex, 14h" />
-              <Task to="Pedro" what="Escrever plano de contingência" when="Próx. semana" />
+              <Task to="Marina" what="Map ERP endpoints" when="Fri, 2pm" />
+              <Task to="Pedro" what="Write contingency plan" when="Next week" />
             </div>
           </div>
         </div>
@@ -138,22 +175,41 @@ function Line({ who, text }: { who: string; text: string }) {
 function Task({ to, what, when }: { to: string; what: string; when: string }) {
   return (
     <div className="flex items-center justify-between border hairline rounded-md px-3 py-2 text-xs">
-      <div className="flex items-center gap-2"><div className="h-5 w-5 rounded-full bg-foreground text-background grid place-items-center text-[9px]">{to[0]}</div><span>{what}</span></div>
+      <div className="flex items-center gap-2">
+        <div className="h-5 w-5 rounded-full bg-foreground text-background grid place-items-center text-[9px]">
+          {to[0]}
+        </div>
+        <span>{what}</span>
+      </div>
       <span className="text-muted-foreground font-mono">{when}</span>
     </div>
   );
 }
 
 function LogosStrip() {
-  const logos = ["Volpe", "Northwind", "Aether", "Helio", "Cardinal", "Brunello", "Atomic", "Verbo"];
+  const logos = [
+    "Volpe",
+    "Northwind",
+    "Aether",
+    "Helio",
+    "Cardinal",
+    "Brunello",
+    "Atomic",
+    "Verbo",
+  ];
   return (
     <section className="border-y hairline py-8 overflow-hidden">
       <p className="text-center text-xs uppercase tracking-widest text-muted-foreground mb-6">
-        Times que substituíram a ata manual pela Minuta
+        Teams that replaced manual meeting notes with Minuta
       </p>
       <div className="marquee">
         {[...logos, ...logos].map((l, i) => (
-          <span key={i} className="text-2xl font-display tracking-tight text-muted-foreground/80 whitespace-nowrap">{l}</span>
+          <span
+            key={i}
+            className="text-2xl font-display tracking-tight text-muted-foreground/80 whitespace-nowrap"
+          >
+            {l}
+          </span>
         ))}
       </div>
     </section>
@@ -162,19 +218,39 @@ function LogosStrip() {
 
 function FeaturesGrid() {
   const items = [
-    { icon: FileText, t: "Ata automática", d: "Resumo estruturado com decisões, owners e prazos. Pronto para enviar." },
-    { icon: ListChecks, t: "Plano de ação", d: "Tarefas extraídas com responsável, deadline e contexto da fala." },
-    { icon: GitBranch, t: "Roadmap & SOPs", d: "Fluxos e procedimentos derivados das discussões." },
-    { icon: BarChart3, t: "Dashboard de produtividade", d: "Tempo em reuniões, decisões tomadas, sessões improdutivas." },
-    { icon: Search, t: "Busca semântica", d: "Pergunte em linguagem natural sobre tudo que já foi discutido." },
-    { icon: ShieldCheck, t: "Compliance & LGPD", d: "Criptografia em repouso, retenção configurável, SSO no Business." },
+    {
+      icon: FileText,
+      t: "Automatic minutes",
+      d: "Structured summary with decisions, owners and deadlines. Ready to send.",
+    },
+    {
+      icon: ListChecks,
+      t: "Action plan",
+      d: "Tasks extracted with responsible person, deadline and speech context.",
+    },
+    { icon: GitBranch, t: "Roadmap & SOPs", d: "Flows and procedures derived from discussions." },
+    {
+      icon: BarChart3,
+      t: "Productivity dashboard",
+      d: "Time in meetings, decisions made, unproductive sessions.",
+    },
+    {
+      icon: Search,
+      t: "Semantic search",
+      d: "Ask in natural language about everything that's been discussed.",
+    },
+    {
+      icon: ShieldCheck,
+      t: "Compliance & Privacy",
+      d: "Encryption at rest, configurable retention, SSO on Business.",
+    },
   ];
   return (
     <section className="mx-auto max-w-7xl px-6 py-32">
       <div className="max-w-2xl">
-        <p className="text-xs uppercase tracking-widest text-muted-foreground">Capacidades</p>
+        <p className="text-xs uppercase tracking-widest text-muted-foreground">Capabilities</p>
         <h2 className="mt-3 font-display text-4xl md:text-5xl tracking-tight font-semibold text-balance">
-          Tudo o que sai de uma reunião — sem ninguém ter que digitar.
+          Everything that comes out of a meeting — without anyone having to type.
         </h2>
       </div>
       <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden border hairline">
@@ -195,17 +271,29 @@ function ProductDemo() {
     <section className="mx-auto max-w-7xl px-6 py-24">
       <div className="grid md:grid-cols-2 gap-16 items-center">
         <div>
-          <p className="text-xs uppercase tracking-widest text-muted-foreground">IA que entende contexto</p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground">
+            AI that understands context
+          </p>
           <h2 className="mt-3 font-display text-4xl tracking-tight font-semibold">
-            De fala para fluxograma <span className="italic font-light">em segundos</span>.
+            From speech to flowchart <span className="italic font-light">in seconds</span>.
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            A Minuta detecta decisões, dependências e processos. Em vez de você abrir o Lucid depois da reunião, ela já gera o BPMN e o roadmap da entrega.
+            Minuta detects decisions, dependencies and processes. Instead of opening Lucid after the
+            meeting, it already generates the BPMN and delivery roadmap.
           </p>
           <ul className="mt-8 space-y-3 text-sm">
-            <li className="flex gap-3"><span className="font-mono text-muted-foreground">01</span> Detecção automática de tópicos e responsáveis</li>
-            <li className="flex gap-3"><span className="font-mono text-muted-foreground">02</span> Fluxograma editável (BPMN/Mermaid)</li>
-            <li className="flex gap-3"><span className="font-mono text-muted-foreground">03</span> Sincroniza com Notion, Jira, Trello</li>
+            <li className="flex gap-3">
+              <span className="font-mono text-muted-foreground">01</span> Automatic detection of
+              topics and owners
+            </li>
+            <li className="flex gap-3">
+              <span className="font-mono text-muted-foreground">02</span> Editable flowchart
+              (BPMN/Mermaid)
+            </li>
+            <li className="flex gap-3">
+              <span className="font-mono text-muted-foreground">03</span> Syncs with Notion, Jira,
+              Trello
+            </li>
           </ul>
         </div>
         <FlowDiagram />
@@ -217,7 +305,9 @@ function ProductDemo() {
 function FlowDiagram() {
   return (
     <div className="rounded-2xl border hairline bg-card p-8 hover-lift">
-      <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-6">workflow.bpmn — gerado às 14:32</div>
+      <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-6">
+        workflow.bpmn — generated at 14:32
+      </div>
       <svg viewBox="0 0 400 280" className="w-full h-auto">
         <g fill="none" stroke="currentColor" strokeWidth="1">
           <circle cx="40" cy="140" r="14" />
@@ -232,9 +322,15 @@ function FlowDiagram() {
           <path d="M360 215 C 380 180, 380 160, 380 154" />
         </g>
         <g fill="currentColor" fontSize="9" fontFamily="Inter">
-          <text x="115" y="143">Levantar API</text>
-          <text x="258" y="98">Decisão</text>
-          <text x="290" y="218">Plano B</text>
+          <text x="115" y="143">
+            Gather API
+          </text>
+          <text x="258" y="98">
+            Decision
+          </text>
+          <text x="290" y="218">
+            Plan B
+          </text>
         </g>
       </svg>
     </div>
@@ -245,23 +341,27 @@ function SemanticSearch() {
   return (
     <section className="mx-auto max-w-7xl px-6 py-24">
       <div className="rounded-3xl border hairline bg-card p-10 md:p-16">
-        <p className="text-xs uppercase tracking-widest text-muted-foreground">Busca semântica</p>
+        <p className="text-xs uppercase tracking-widest text-muted-foreground">Semantic search</p>
         <h2 className="mt-3 font-display text-4xl tracking-tight font-semibold max-w-2xl text-balance">
-          Pergunte qualquer coisa sobre meses de reuniões.
+          Ask anything about months of meetings.
         </h2>
         <div className="mt-10 max-w-2xl">
           <div className="border hairline rounded-xl bg-background p-4 flex items-start gap-3">
             <Search className="h-4 w-4 mt-1 text-muted-foreground" />
             <div>
-              <p className="text-sm">"Mostre reuniões que falaram sobre integração com ERP."</p>
+              <p className="text-sm">"Show meetings that discussed ERP integration."</p>
               <div className="mt-4 space-y-2">
                 {[
-                  { t: "Planejamento Q2", d: "12 mai · 47 min · 3 menções" },
-                  { t: "Sync de produto", d: "28 abr · 32 min · 2 menções" },
-                  { t: "Kickoff parceiro", d: "14 abr · 1h 12min · 5 menções" },
+                  { t: "Q2 Planning", d: "May 12 · 47 min · 3 mentions" },
+                  { t: "Product sync", d: "Apr 28 · 32 min · 2 mentions" },
+                  { t: "Partner kickoff", d: "Apr 14 · 1h 12min · 5 mentions" },
                 ].map((r) => (
-                  <div key={r.t} className="flex items-center justify-between border-t hairline pt-2 text-xs">
-                    <span>{r.t}</span><span className="font-mono text-muted-foreground">{r.d}</span>
+                  <div
+                    key={r.t}
+                    className="flex items-center justify-between border-t hairline pt-2 text-xs"
+                  >
+                    <span>{r.t}</span>
+                    <span className="font-mono text-muted-foreground">{r.d}</span>
                   </div>
                 ))}
               </div>
@@ -275,14 +375,14 @@ function SemanticSearch() {
 
 function Workflow() {
   const steps = [
-    { n: "01", t: "Coloque na mesa", d: "Inicie a gravação pelo app. Funciona offline." },
-    { n: "02", t: "Conduza normalmente", d: "Diarização identifica cada participante automaticamente." },
-    { n: "03", t: "Receba os artefatos", d: "Ata, fluxograma e tarefas chegam em segundos." },
+    { n: "01", t: "Place on the table", d: "Start recording from the app. Works offline." },
+    { n: "02", t: "Run it normally", d: "Diarization identifies each participant automatically." },
+    { n: "03", t: "Receive the artifacts", d: "Minutes, flowcharts and tasks arrive in seconds." },
   ];
   return (
     <section className="mx-auto max-w-7xl px-6 py-24">
       <div className="border-t hairline pt-16">
-        <p className="text-xs uppercase tracking-widest text-muted-foreground">Como funciona</p>
+        <p className="text-xs uppercase tracking-widest text-muted-foreground">How it works</p>
         <div className="mt-10 grid md:grid-cols-3 gap-12">
           {steps.map((s) => (
             <div key={s.n}>
@@ -299,10 +399,10 @@ function Workflow() {
 
 function Metrics() {
   const m = [
-    { v: "2.4h", l: "economizadas por pessoa, por semana" },
-    { v: "97%", l: "de precisão na transcrição PT-BR" },
-    { v: "31%", l: "menos reuniões improdutivas" },
-    { v: "<60s", l: "para gerar ata e fluxograma" },
+    { v: "2.4h", l: "saved per person, per week" },
+    { v: "97%", l: "transcription accuracy" },
+    { v: "31%", l: "fewer unproductive meetings" },
+    { v: "<60s", l: "to generate minutes and flowchart" },
   ];
   return (
     <section className="mx-auto max-w-7xl px-6 py-24">
@@ -319,23 +419,47 @@ function Metrics() {
 }
 
 function Integrations() {
-  const tools = ["Slack", "Notion", "Jira", "Microsoft Teams", "Trello", "Google Calendar", "Linear", "Asana"];
+  const group1 = [
+    { img: "https://1000logos.net/wp-content/uploads/2021/06/Slack-logo.png" },
+    {  img: "https://get.site/wp-content/uploads/2021/10/notion-logo.png" },
+    {  img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Jira_Logo.svg/3840px-Jira_Logo.svg.png" },
+    {  img: "https://logos-world.net/wp-content/uploads/2021/04/Microsoft-Teams-Emblem.png" },
+  ];
+  const group2 = [
+    {  img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Trello-logo-blue.svg/3840px-Trello-logo-blue.svg.png" },
+    {  img: "https://png.pngtree.com/png-vector/20230817/ourmid/pngtree-google-calendar-calendar-platform-icon-vector-png-image_9183258.png" },
+    {  img: "https://us-east-1-shared-usea1-02.graphassets.com/AjoDK24gSS52c8TDqE4MVz/unrRMgGzTruLtweIazbP" },
+    {  img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Asana_logo.svg/1280px-Asana_logo.svg.png" },
+  ];
+  
   return (
     <section className="mx-auto max-w-7xl px-6 py-24">
-      <div className="flex items-end justify-between mb-10">
-        <div>
-          <p className="text-xs uppercase tracking-widest text-muted-foreground">Integrações</p>
-          <h2 className="mt-3 font-display text-4xl tracking-tight font-semibold">Conecta onde seu time já trabalha.</h2>
+      <div className="flex items-end justify-between mb-10 text-center md:text-left md:flex-row flex-col items-center md:items-end">
+        <div className="w-full">
+          <p className="text-xs uppercase tracking-widest text-muted-foreground text-center">Integrations</p>
+          <h2 className="mt-3 font-display text-4xl tracking-tight font-semibold text-center">
+            Connects where your team already works.
+          </h2>
+          <p className="text-center text-sm text-muted-foreground mt-2">
+            Companies that have been using our product from the very start.
+          </p>
         </div>
-        <Plug className="h-6 w-6 text-muted-foreground" strokeWidth={1.5} />
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden border hairline">
-        {tools.map((t) => (
-          <div key={t} className="bg-background p-8 flex items-center justify-between hover-lift">
-            <span className="font-medium">{t}</span>
-            <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
-          </div>
-        ))}
+      <div className="relative rounded-2xl overflow-hidden min-h-[140px] md:min-h-[100px] flex items-center justify-center">
+        <div className="absolute inset-0 grid grid-cols-2 md:grid-cols-4 gap-4 animate-swap-1 items-center justify-items-center">
+          {group1.map((t) => (
+            <div key={t.name} className="flex items-center justify-center p-4">
+              <img src={t.img} alt={`${t.name} logo`} className="h-12 max-w-[140px] object-contain mix-blend-multiply dark:mix-blend-normal hover:scale-105 transition-transform" />
+            </div>
+          ))}
+        </div>
+        <div className="absolute inset-0 grid grid-cols-2 md:grid-cols-4 gap-4 animate-swap-2 items-center justify-items-center">
+          {group2.map((t) => (
+            <div key={t.name} className="flex items-center justify-center p-4">
+              <img src={t.img} alt={`${t.name} logo`} className="h-12 max-w-[140px] object-contain mix-blend-multiply dark:mix-blend-normal hover:scale-105 transition-transform" />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -346,15 +470,31 @@ function Testimonials() {
     <section className="mx-auto max-w-7xl px-6 py-24">
       <div className="grid md:grid-cols-2 gap-6">
         {[
-          { q: "Saímos da reunião com a ata pronta no Notion. Mudou nosso jeito de trabalhar.", a: "Camila Souza", r: "Head de Operações, Helio" },
-          { q: "O fluxograma automático elimina 2h de retrabalho por sprint. Pagou-se em uma semana.", a: "Bruno Tavares", r: "Eng. Manager, Aether" },
+          {
+            q: "We left the meeting with the notes ready in Notion. Changed the way we work.",
+            a: "Camila Souza",
+            r: "Head of Operations, Helio",
+          },
+          {
+            q: "The automatic flowchart eliminates 2h of rework per sprint. Paid for itself in one week.",
+            a: "Bruno Tavares",
+            r: "Eng. Manager, Aether",
+          },
         ].map((t) => (
           <div key={t.a} className="border hairline rounded-2xl p-10 bg-card hover-lift">
             <Quote className="h-5 w-5 text-muted-foreground" />
             <p className="mt-6 text-lg leading-relaxed text-balance">"{t.q}"</p>
             <div className="mt-8 flex items-center gap-3 text-sm">
-              <div className="h-9 w-9 rounded-full bg-foreground text-background grid place-items-center text-xs font-medium">{t.a.split(" ").map(s=>s[0]).join("")}</div>
-              <div><div className="font-medium">{t.a}</div><div className="text-muted-foreground text-xs">{t.r}</div></div>
+              <div className="h-9 w-9 rounded-full bg-foreground text-background grid place-items-center text-xs font-medium">
+                {t.a
+                  .split(" ")
+                  .map((s) => s[0])
+                  .join("")}
+              </div>
+              <div>
+                <div className="font-medium">{t.a}</div>
+                <div className="text-muted-foreground text-xs">{t.r}</div>
+              </div>
             </div>
           </div>
         ))}
@@ -368,14 +508,21 @@ function CTA() {
     <section className="mx-auto max-w-7xl px-6 py-24">
       <div className="rounded-3xl bg-foreground text-background p-12 md:p-20 grain">
         <h2 className="font-display text-4xl md:text-6xl tracking-tight font-semibold max-w-3xl text-balance">
-          Sua próxima reunião pode ser a última que você anota à mão.
+          Your next meeting could be the last one you take notes on by hand.
         </h2>
         <div className="mt-10 flex flex-wrap items-center gap-3">
           <Button asChild size="lg" variant="secondary" className="h-12 px-6 text-base">
-            <Link to="/dashboard">Começar grátis <ArrowUpRight className="h-4 w-4" /></Link>
+            <Link to="/dashboard">
+              Get started free <ArrowUpRight className="h-4 w-4" />
+            </Link>
           </Button>
-          <Button asChild size="lg" variant="ghost" className="h-12 px-4 text-base text-background hover:bg-background/10 hover:text-background">
-            <Link to="/precos">Ver planos</Link>
+          <Button
+            asChild
+            size="lg"
+            variant="ghost"
+            className="h-12 px-4 text-base text-background hover:bg-background/10 hover:text-background"
+          >
+            <Link to="/precos">See plans</Link>
           </Button>
         </div>
       </div>
