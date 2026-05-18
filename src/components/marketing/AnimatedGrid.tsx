@@ -7,7 +7,7 @@ export function AnimatedGrid() {
       {/* Moving lines (scanlines) */}
       <div className="absolute top-0 bottom-0 left-[20%] w-[2px] bg-gradient-to-b from-transparent via-foreground/20 to-transparent animate-scan-y opacity-50" />
       <div className="absolute top-0 bottom-0 right-[30%] w-[2px] bg-gradient-to-b from-transparent via-foreground/20 to-transparent animate-scan-y-reverse opacity-50" />
-      
+
       <div className="absolute left-0 right-0 top-[35%] h-[2px] bg-gradient-to-r from-transparent via-foreground/20 to-transparent animate-scan-x opacity-50" />
       <div className="absolute left-0 right-0 bottom-[20%] h-[2px] bg-gradient-to-r from-transparent via-foreground/20 to-transparent animate-scan-x-reverse opacity-50" />
 

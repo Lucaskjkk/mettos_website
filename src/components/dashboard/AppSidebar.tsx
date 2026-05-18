@@ -1,14 +1,37 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import {
-  Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel,
-  SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarHeader, useSidebar,
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarHeader,
+  useSidebar,
 } from "@/components/ui/sidebar";
 import {
-  PlayCircle, LayoutDashboard, Mic, GitBranch, ListChecks,
-  Sparkles, Plug, Settings, Users, Code2, CreditCard,
+  PlayCircle,
+  LayoutDashboard,
+  Mic,
+  GitBranch,
+  ListChecks,
+  Sparkles,
+  Plug,
+  Settings,
+  Users,
+  Code2,
+  CreditCard,
 } from "lucide-react";
 
-type Item = { title: string; url: string; icon: typeof PlayCircle; accent?: boolean; exact?: boolean };
+type Item = {
+  title: string;
+  url: string;
+  icon: typeof PlayCircle;
+  accent?: boolean;
+  exact?: boolean;
+};
 type Group = { label: string; items: Item[] };
 const groups: Group[] = [
   {
@@ -19,9 +42,7 @@ const groups: Group[] = [
   },
   {
     label: "Overview",
-    items: [
-      { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard, exact: true },
-    ],
+    items: [{ title: "Dashboard", url: "/dashboard", icon: LayoutDashboard, exact: true }],
   },
   {
     label: "Meetings",
@@ -58,22 +79,36 @@ export function AppSidebar() {
     <Sidebar collapsible="icon">
       <SidebarHeader className="border-b border-sidebar-border">
         <Link to="/" className="flex items-center gap-2 px-2 py-1.5">
-          <div className="h-7 w-7 rounded-md bg-sidebar-primary text-sidebar-primary-foreground grid place-items-center text-[11px] font-semibold shrink-0">M</div>
+          <div className="h-7 w-7 rounded-md bg-sidebar-primary text-sidebar-primary-foreground grid place-items-center text-[11px] font-semibold shrink-0">
+            M
+          </div>
           {!collapsed && <span className="font-semibold text-sidebar-foreground">Minuta</span>}
         </Link>
       </SidebarHeader>
       <SidebarContent>
         {groups.map((g) => (
           <SidebarGroup key={g.label}>
-            {!collapsed && <SidebarGroupLabel className="text-[10px] uppercase tracking-widest text-sidebar-foreground/50">{g.label}</SidebarGroupLabel>}
+            {!collapsed && (
+              <SidebarGroupLabel className="text-[10px] uppercase tracking-widest text-sidebar-foreground/50">
+                {g.label}
+              </SidebarGroupLabel>
+            )}
             <SidebarGroupContent>
               <SidebarMenu>
                 {g.items.map((it) => {
                   const active = it.exact ? path === it.url : path.startsWith(it.url);
                   return (
                     <SidebarMenuItem key={it.url}>
-                      <SidebarMenuButton asChild isActive={active} tooltip={it.title}
-                        className={it.accent ? "bg-sidebar-primary text-sidebar-primary-foreground hover:bg-sidebar-primary/90 data-[active=true]:bg-sidebar-primary" : ""}>
+                      <SidebarMenuButton
+                        asChild
+                        isActive={active}
+                        tooltip={it.title}
+                        className={
+                          it.accent
+                            ? "bg-sidebar-primary text-sidebar-primary-foreground hover:bg-sidebar-primary/90 data-[active=true]:bg-sidebar-primary"
+                            : ""
+                        }
+                      >
                         <Link to={it.url as string}>
                           <it.icon className="h-4 w-4" />
                           <span>{it.title}</span>

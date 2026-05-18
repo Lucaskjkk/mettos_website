@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { AnimatedGrid } from "@/components/marketing/AnimatedGrid";
+import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -10,26 +12,35 @@ export const Route = createFileRoute("/login")({
 
 function Login() {
   return (
-    <div className="min-h-screen grid md:grid-cols-2">
-      <div className="hidden md:flex bg-foreground text-background p-12 flex-col justify-between grain">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="h-7 w-7 rounded-md bg-background text-foreground grid place-items-center text-[11px] font-semibold">
+    <div className="min-h-screen grid md:grid-cols-2 relative overflow-hidden bg-background">
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <AnimatedGrid />
+      </div>
+      
+      <BackgroundBeamsWithCollision className="hidden md:flex bg-zinc-950 text-zinc-50 p-12 flex-col items-start justify-between relative z-10 shadow-2xl">
+        <div className="absolute inset-0 opacity-[0.08] mix-blend-overlay pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.4) 1px, transparent 1px)", backgroundSize: "4px 4px" }} />
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/20 rounded-full blur-[100px] pointer-events-none transform translate-x-1/3 -translate-y-1/3 z-0" />
+        
+        <Link to="/" className="flex items-center gap-2 relative z-20">
+          <div className="h-7 w-7 rounded-md bg-zinc-50 text-zinc-950 grid place-items-center text-[11px] font-bold">
             M
           </div>
-          <span className="font-semibold">Minuta</span>
+          <span className="font-semibold text-white">Minuta</span>
         </Link>
-        <div className="max-w-md">
-          <p className="text-xs uppercase tracking-widest opacity-60">Welcome back</p>
-          <h1 className="mt-4 font-display text-4xl md:text-5xl tracking-tight font-semibold text-balance">
+
+        <div className="max-w-md relative z-20 w-full">
+          <p className="text-xs uppercase font-bold tracking-widest text-primary mb-4">Welcome back</p>
+          <h1 className="font-display text-4xl md:text-5xl tracking-tight font-semibold text-balance leading-tight text-white mb-2">
             "We left the meeting with the notes ready. No going back."
           </h1>
-          <p className="mt-6 text-sm opacity-70">— Camila Souza, Head of Operations at Helio</p>
+          <p className="mt-6 text-sm text-zinc-400">— Camila Souza, Head of Operations at Helio</p>
         </div>
-        <div className="text-xs opacity-60 font-mono">© Minuta Labs · 2026</div>
-      </div>
 
-      <div className="flex items-center justify-center p-8">
-        <div className="w-full max-w-sm fade-up">
+        <div className="text-xs text-zinc-500 font-mono relative z-20">© Minuta Labs · 2026</div>
+      </BackgroundBeamsWithCollision>
+
+      <div className="flex items-center justify-center p-8 relative z-10">
+        <div className="w-full max-w-sm fade-up bg-background/80 backdrop-blur-md p-8 md:p-10 rounded-3xl border hairline shadow-xl ring-1 ring-black/5 dark:ring-white/5">
           <Link to="/" className="md:hidden flex items-center gap-2 mb-12">
             <div className="h-7 w-7 rounded-md bg-foreground text-background grid place-items-center text-[11px] font-semibold">
               M

@@ -55,13 +55,13 @@
   --radius: 0.625rem;
 
   /* Cream + near-black palette */
-  --background: oklch(0.975 0.012 85);          /* warm cream #F7F4EC */
-  --foreground: oklch(0.18 0.005 60);           /* near black */
+  --background: oklch(0.975 0.012 85); /* warm cream #F7F4EC */
+  --foreground: oklch(0.18 0.005 60); /* near black */
   --card: oklch(0.985 0.008 85);
   --card-foreground: oklch(0.18 0.005 60);
   --popover: oklch(0.985 0.008 85);
   --popover-foreground: oklch(0.18 0.005 60);
-  --primary: oklch(0.18 0.005 60);              /* near-black */
+  --primary: oklch(0.18 0.005 60); /* near-black */
   --primary-foreground: oklch(0.975 0.012 85);
   --secondary: oklch(0.94 0.012 85);
   --secondary-foreground: oklch(0.18 0.005 60);
@@ -117,7 +117,8 @@
   * {
     border-color: var(--color-border);
   }
-  html, body {
+  html,
+  body {
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -136,39 +137,76 @@
   .font-display {
     letter-spacing: -0.025em;
   }
-  .text-balance { text-wrap: balance; }
+  .text-balance {
+    text-wrap: balance;
+  }
   .grain {
     position: relative;
   }
   .grain::after {
     content: "";
-    position: absolute; inset: 0;
+    position: absolute;
+    inset: 0;
     pointer-events: none;
-    background-image: radial-gradient(rgba(0,0,0,0.06) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px);
     background-size: 3px 3px;
     mix-blend-mode: multiply;
-    opacity: .35;
+    opacity: 0.35;
   }
-  .hairline { border-color: color-mix(in oklab, var(--foreground) 12%, transparent); }
-  .hover-lift { transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s; }
-  .hover-lift:hover { transform: translateY(-2px); }
+  .hairline {
+    border-color: color-mix(in oklab, var(--foreground) 12%, transparent);
+  }
+  .hover-lift {
+    transition:
+      transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+      box-shadow 0.35s;
+  }
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
   .marquee {
-    display: flex; gap: 3rem;
+    display: flex;
+    gap: 3rem;
     animation: marquee 40s linear infinite;
   }
   @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
   .fade-up {
-    animation: fadeUp .8s cubic-bezier(.2,.7,.2,1) both;
+    animation: fadeUp 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(14px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-  .blink { animation: blink 1.4s steps(2) infinite; }
-  @keyframes blink { 50% { opacity: .2; } }
+  .blink {
+    animation: blink 1.4s steps(2) infinite;
+  }
+  @keyframes blink {
+    50% {
+      opacity: 0.2;
+    }
+  }
+
+  .animate-flow-line {
+    animation: flow-line 2s linear infinite;
+  }
+  @keyframes flow-line {
+    to {
+      stroke-dashoffset: -10px;
+    }
+  }
 
   .animate-swap-1 {
     animation: swap1 8s infinite;
@@ -177,13 +215,89 @@
     animation: swap2 8s infinite;
   }
 
+  .animate-wave {
+    animation: wave 1s ease-in-out infinite alternate;
+  }
+  @keyframes wave {
+    0% {
+      height: 4px;
+    }
+    100% {
+      height: 16px;
+    }
+  }
+
+  .animate-seg-1 {
+    animation: seg1 6s infinite;
+  }
+  .animate-seg-2 {
+    animation: seg2 6s infinite;
+  }
+
+  @keyframes seg1 {
+    0%,
+    5% {
+      width: 0%;
+      opacity: 0;
+    }
+    10% {
+      width: 0%;
+      opacity: 1;
+    }
+    30% {
+      width: 100%;
+      opacity: 1;
+    }
+    80% {
+      width: 100%;
+      opacity: 1;
+    }
+    90% {
+      width: 100%;
+      opacity: 0;
+    }
+    100% {
+      width: 0%;
+      opacity: 0;
+    }
+  }
+  @keyframes seg2 {
+    0%,
+    30% {
+      width: 0%;
+      opacity: 0;
+    }
+    35% {
+      width: 0%;
+      opacity: 1;
+    }
+    55% {
+      width: 100%;
+      opacity: 1;
+    }
+    80% {
+      width: 100%;
+      opacity: 1;
+    }
+    90% {
+      width: 100%;
+      opacity: 0;
+    }
+    100% {
+      width: 0%;
+      opacity: 0;
+    }
+  }
+
   @keyframes swap1 {
-    0%, 45% {
+    0%,
+    45% {
       opacity: 1;
       filter: blur(0px);
       transform: scale(1);
     }
-    50%, 95% {
+    50%,
+    95% {
       opacity: 0;
       filter: blur(8px);
       transform: scale(0.95);
@@ -196,13 +310,15 @@
   }
 
   @keyframes swap2 {
-    0%, 45% {
+    0%,
+    45% {
       opacity: 0;
       filter: blur(8px);
       transform: scale(0.95);
       pointer-events: none;
     }
-    50%, 95% {
+    50%,
+    95% {
       opacity: 1;
       filter: blur(0px);
       transform: scale(1);
@@ -217,17 +333,37 @@
   }
 
   @keyframes scan-x {
-    0% { transform: translateX(-100%); }
-    50% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
+    0% {
+      transform: translateX(-100%);
+    }
+    50% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
   }
   @keyframes scan-y {
-    0% { transform: translateY(-100%); }
-    50% { transform: translateY(100%); }
-    100% { transform: translateY(-100%); }
+    0% {
+      transform: translateY(-100%);
+    }
+    50% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
   }
-  .animate-scan-x { animation: scan-x 15s ease-in-out infinite; }
-  .animate-scan-x-reverse { animation: scan-x 20s ease-in-out infinite reverse; }
-  .animate-scan-y { animation: scan-y 18s ease-in-out infinite; }
-  .animate-scan-y-reverse { animation: scan-y 24s ease-in-out infinite reverse; }
+  .animate-scan-x {
+    animation: scan-x 15s ease-in-out infinite;
+  }
+  .animate-scan-x-reverse {
+    animation: scan-x 20s ease-in-out infinite reverse;
+  }
+  .animate-scan-y {
+    animation: scan-y 18s ease-in-out infinite;
+  }
+  .animate-scan-y-reverse {
+    animation: scan-y 24s ease-in-out infinite reverse;
+  }
 }
